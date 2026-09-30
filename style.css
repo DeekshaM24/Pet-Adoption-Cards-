@@ -1,37 +1,480 @@
-.card{
-    width: 400px;
-    border: 2px solid black;
-    border-radius:25px;
-    padding: 10px;
-    margin: 10px;
+/* 1. Global styles and design variables */
+:root {
+    color-scheme: light;
+
+    --color-ink: #293732;
+    --color-muted: #737c75;
+    --color-sage: #748b78;
+    --color-rose: #c78778;
+    --color-plum: #3b3039;
+    --color-description: #5f6264;
+    --color-brand-accent: #a36f7a;
+    --color-page-base: #f8f5fa;
+    --color-page-warm: #fffafc;
+    --color-page-cool: #f7f9fc;
+    --color-orb-lavender: rgba(229, 216, 240, 0.76);
+    --color-orb-blush: rgba(246, 214, 231, 0.66);
+    --color-orb-blue: rgba(215, 233, 249, 0.7);
+    --color-orb-peach: rgba(249, 227, 208, 0.6);
+    --color-line: rgba(77, 97, 82, 0.16);
+    --color-header-surface: rgba(255, 255, 252, 0.58);
+    --color-card-surface: rgba(255, 255, 255, 0.55);
+    --color-media-surface: rgba(255, 255, 255, 0.42);
+    --color-glass-border: rgba(255, 255, 255, 0.88);
+    --color-media-border: rgba(255, 255, 255, 0.78);
+    --color-badge-background: rgba(232, 221, 240, 0.58);
+    --color-badge-border: rgba(173, 148, 183, 0.2);
+    --color-badge-text: #75627a;
+    --color-media-highlight: rgba(255, 255, 255, 0.2);
+    --color-media-inset-highlight: rgba(255, 255, 255, 0.42);
+    --color-title-start: #755965;
+    --color-title-end: #aa7a82;
+    --color-button-start: #f5e7ee;
+    --color-button-middle: #eee8f3;
+    --color-button-end: #e8f0f6;
+    --color-button-border: rgba(255, 255, 255, 0.86);
+    --color-focus: rgba(117, 89, 101, 0.42);
+    --color-card-highlight: rgba(255, 255, 255, 0.85);
+    --color-strong-highlight: rgba(255, 255, 255, 0.9);
+    --color-button-highlight: rgba(255, 255, 255, 0.8);
+
+    --shadow-header: 0 8px 24px rgba(52, 69, 57, 0.05);
+    --shadow-card:
+        0 12px 30px rgba(40, 35, 43, 0.05),
+        0 30px 70px rgba(54, 44, 56, 0.11),
+        inset 0 1px 0 var(--color-card-highlight);
+    --shadow-card-hover:
+        0 16px 34px rgba(40, 35, 43, 0.06),
+        0 36px 78px rgba(54, 44, 56, 0.15),
+        inset 0 1px 0 var(--color-strong-highlight);
+    --shadow-media: 0 8px 20px rgba(48, 42, 53, 0.1);
+    --shadow-button: 0 6px 18px rgba(59, 48, 57, 0.09), inset 0 1px 0 var(--color-button-highlight);
+    --shadow-button-hover: 0 10px 22px rgba(59, 48, 57, 0.13), inset 0 1px 0 var(--color-strong-highlight);
+
+    --radius-header: 8px;
+    --radius-card: 22px;
+    --radius-card-small: 18px;
+    --radius-image: 15px;
+    --radius-image-small: 13px;
+    --radius-pill: 999px;
+
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-7: 28px;
+    --space-8: 32px;
+    --space-9: 48px;
 }
 
-img{
-    width: 100% ;
-    border-radius: 25px;
-
+* {
+    box-sizing: border-box;
 }
 
-h2{
-    color:#d56f36;
+main {
+    width: min(1120px, calc(100% - var(--space-9)));
+    margin: 0 auto;
 }
 
-span{
-    color:#9d6f24;
-}
-h4{
-    text-align: right;
-    color: #3c787e;
-    
+/* 2. Background */
+body {
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+    margin: 0;
+    color: var(--color-ink);
+    font-family: "DM Sans", "Trebuchet MS", sans-serif;
+    background-color: var(--color-page-base);
+    background-image: linear-gradient(135deg, var(--color-page-base) 0%, var(--color-page-warm) 52%, var(--color-page-cool) 100%);
 }
 
-#pets {
+body::before {
+    position: fixed;
+    z-index: -1;
+    inset: -14vh -12vw;
+    content: "";
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse at 18% 18%, var(--color-orb-lavender) 0, transparent 42%),
+        radial-gradient(ellipse at 78% 25%, var(--color-orb-blush) 0, transparent 40%),
+        radial-gradient(ellipse at 72% 78%, var(--color-orb-blue) 0, transparent 43%),
+        radial-gradient(ellipse at 24% 82%, var(--color-orb-peach) 0, transparent 39%);
+    filter: blur(64px);
+    opacity: 0.76;
+}
+
+/* 3. Header and branding */
+.site-header {
+    width: min(1120px, calc(100% - var(--space-9)));
+    min-height: 66px;
+    margin: var(--space-4) auto 0;
     display: flex;
-    justify-content: space-evenly;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid var(--color-glass-border);
+    border-radius: var(--radius-header);
+    background: var(--color-header-surface);
+    box-shadow: var(--shadow-header);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
 }
 
-@media (max-width: 375px){
-#pets{
-    flex-wrap: wrap;
+.brand {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0;
+    color: var(--color-plum);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    text-decoration: none;
 }
-} 
+
+.brand-domain {
+    margin-left: 2px;
+    color: var(--color-brand-accent);
+    font-family: "DM Sans", "Trebuchet MS", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+}
+
+.header-note,
+.hero-copy {
+    color: var(--color-muted);
+}
+
+.header-note {
+    margin: 0;
+    font-size: 13px;
+}
+
+/* 4. Hero section */
+.hero {
+    padding: 58px 0 38px;
+    text-align: center;
+}
+
+.eyebrow {
+    margin: 0;
+    color: var(--color-sage);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    margin: 14px 0 12px;
+    color: var(--color-plum);
+    font-family: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+    font-size: 64px;
+    font-weight: 600;
+    line-height: 1.02;
+}
+
+.hero h1 span {
+    background: linear-gradient(110deg, var(--color-title-start), var(--color-title-end));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-copy {
+    max-width: 520px;
+    margin: 0 auto;
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+/* 5. Pet cards */
+#pets {
+    width: min(100%, 1000px);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: var(--space-7);
+    padding-bottom: var(--space-9);
+}
+
+.card {
+    width: 100%;
+    max-width: 486px;
+    min-width: 0;
+    justify-self: center;
+    overflow: hidden;
+    border: 1px solid var(--color-glass-border);
+    border-radius: var(--radius-card);
+    background: var(--color-card-surface);
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+/* 6. Pet images */
+.card-media {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    margin: var(--space-3) var(--space-3) 0;
+    border: 1px solid var(--color-media-border);
+    border-radius: var(--radius-image);
+    background: var(--color-media-surface);
+    box-shadow: var(--shadow-media);
+}
+
+.card-media::after {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    content: "";
+    pointer-events: none;
+    background: linear-gradient(180deg, var(--color-media-highlight), transparent 38%);
+    box-shadow: inset 0 1px 0 var(--color-media-inset-highlight);
+}
+
+.card-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 480ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* 7. Pet information */
+.card-content {
+    padding: 30px 32px 34px;
+}
+
+.adoption-badge {
+    width: fit-content;
+    margin: 0 0 10px;
+    padding: 5px 9px;
+    border: 1px solid var(--color-badge-border);
+    border-radius: var(--radius-pill);
+    background: var(--color-badge-background);
+    color: var(--color-badge-text);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.9px;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.card-content h3 {
+    margin: 0 0 13px;
+    color: var(--color-plum);
+    font-family: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+    font-size: 33px;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.pet-description {
+    max-width: 380px;
+    margin: 0 0 var(--space-3);
+    color: var(--color-description);
+    font-size: 13.5px;
+    line-height: 1.6;
+    text-wrap: pretty;
+}
+
+.pet-description:last-of-type {
+    margin-bottom: var(--space-5);
+}
+
+/* 8. Buttons */
+.adoption-cta {
+    display: inline-flex;
+    width: fit-content;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 17px;
+    border: 1px solid var(--color-button-border);
+    border-radius: var(--radius-pill);
+    background: linear-gradient(110deg, var(--color-button-start), var(--color-button-middle) 56%, var(--color-button-end));
+    box-shadow: var(--shadow-button);
+    color: var(--color-plum);
+    font-family: "DM Sans", "Trebuchet MS", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.adoption-cta:focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 3px;
+}
+
+/* 9. Hover effects */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-card-hover);
+}
+
+.card-media:hover img {
+    transform: scale(1.035);
+}
+
+.adoption-cta:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.035);
+    box-shadow: var(--shadow-button-hover);
+}
+
+.adoption-cta:active {
+    transform: translateY(-1px);
+}
+
+/* 10. Footer and closing message */
+.site-footer {
+    width: min(1120px, calc(100% - var(--space-9)));
+    min-height: 82px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--space-3);
+    border-top: 1px solid var(--color-line);
+}
+
+.footer-rule {
+    width: 32px;
+    height: 1px;
+    background: var(--color-rose);
+}
+
+.footer-message {
+    margin: 0;
+    color: var(--color-sage);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* 11. Responsive design */
+@media (max-width: 900px) {
+    .hero {
+        padding: 50px 0 32px;
+    }
+
+    #pets {
+        gap: 22px;
+    }
+
+    .card-content {
+        padding: 26px 24px 28px;
+    }
+}
+
+@media (max-width: 720px) {
+    .hero {
+        padding: 52px 0 32px;
+    }
+
+    .hero h1 {
+        font-size: 46px;
+    }
+
+    #pets {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-header,
+    main,
+    .site-footer {
+        width: min(100% - var(--space-8), 1120px);
+    }
+
+    .site-header {
+        min-height: 62px;
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+
+    .header-note {
+        max-width: 130px;
+        text-align: right;
+        font-size: 11px;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .card-content {
+        padding: 21px 20px 24px;
+    }
+}
+
+@media (max-width: 360px) {
+    .site-header,
+    main,
+    .site-footer {
+        width: calc(100% - var(--space-6));
+    }
+
+    .site-header {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .header-note {
+        max-width: 112px;
+        font-size: 10px;
+    }
+
+    .hero {
+        padding: 42px 0 26px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .card {
+        border-radius: var(--radius-card-small);
+    }
+
+    .card-media {
+        margin: 10px 10px 0;
+        border-radius: var(--radius-image-small);
+    }
+
+    .card-content {
+        padding: 19px 16px 22px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .card,
+    .card-media img,
+    .adoption-cta {
+        transition: none;
+    }
+
+    .card:hover {
+        transform: none;
+    }
+
+    .card-media:hover img {
+        transform: none;
+    }
+
+    .adoption-cta:hover,
+    .adoption-cta:active {
+        transform: none;
+        filter: none;
+    }
+}

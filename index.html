@@ -2,54 +2,122 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"content="width=device-width,initial-scale=1.0">
-    <title>Project 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f8f5fa">
+    <title>adopted.com | Adopt a Pet Today</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2><i> adopted.com</i></h2>
-    <h1> Adopt a <span>Pet</span> Today</h1>
-    <br /><br />
-    <div id="pets">
-        <div class ="card">
-            <img src="Tom.jpg" alt="jerry" />
-            <h3> Meet Tom </h3>
-            <p>
-                Dogs are mammals, usually to be kept as pets, or work on farms or for the police. 
-                Some dogs are trained to be rescue dogs and join teams such as mountain rescue.
-                Dogs have been bred by humans from ancestral wolves. They were the first animals 
-                to live with humans.There was a lot of different types among wolves in the Late 
-                Pleistocene.Today, some dogs are used as pets, and others are used to help humans
-                do their work.They are popular pets because they are usually playful, friendly, 
-                loyal, and listen to humans.Thirty million dogs in the United States have been 
-                registered as pets. Dogs eat both meat and vegetables, which are often mixed 
-                together and sold in stores as dog food.Dogs often have jobs including police 
-                dogs, army dogs, assistance dogs, fire dogs, messenger dogs, hunting dogs, 
-                herding dogs, or rescue dogs.A baby dog is called a pup or puppy.Dogs are
-                sometimes known as "human's best friend" because they are kept as pets, are 
-                usually loyal, and like being around humans.
-            </p>
-        </div>
-        <div class="card">
-            <img src="cat.jpg" alt="Jerry" />
-            <h3>Meet Jerry </h3>
-            <p>
-                The cat (Felis catus), also called domestic cat and house cat, is a small carnivorous
-                mammal. It is an obligate carnivore, requiring a predominantly meat-based diet. Its 
-                retractable claws are adapted to killing small prey species such as mice and rats. It 
-                has a strong, flexible body, quick reflexes, and sharp teeth, and its night vision and 
-                sense of smell are well developed. It is a social species, but a solitary hunter and a 
-                crepuscular predator. Cat communication includes meowing, purring, trilling, hissing, 
-                growling, grunting, and body language. It can hear sounds too faint or too high in 
-                frequency for human ears, such as those made by small mammals. It secretes and perceives 
-                pheromones. Cat intelligence is evident in its ability to adapt, learn through observation, 
-                and solve problems. Female domestic cats can have kittens from spring to late autumn in 
-                temperate zones and throughout the year in equatorial regions, with litter sizes often 
-                ranging from two to five kittens.
-            </p>
-        </div>
-    </div>
-    <h4> A Gift Of New Life !!</h4>
-    <script src="web.js"></script>
+    <header class="site-header">
+        <a class="brand" href="#" aria-label="adopted.com home">
+            <span>adopted</span><span class="brand-domain">.com</span>
+        </a>
+        <p class="header-note">Thoughtful matches. Happier homes.</p>
+    </header>
+
+    <main>
+        <section class="hero" aria-labelledby="page-title">
+            <p class="eyebrow">A little love goes a long way</p>
+            <h1 id="page-title">Adopt a <span>Pet</span> Today</h1>
+            <p class="hero-copy">Find a loving companion waiting for a forever home.</p>
+        </section>
+
+        <section id="pets" aria-label="Pets looking for a home">
+            <article class="card">
+                <div class="card-media">
+                    <img src="Tom.jpg" alt="Tom, a dog ready to meet his new family">
+                </div>
+                <div class="card-content">
+                    <p class="adoption-badge">AVAILABLE FOR ADOPTION</p>
+                    <h3>Meet Tom</h3>
+                      <p class="pet-description">Tom is a friendly and playful dog who loves spending time with people. He is looking for a caring family and a loving forever home. Give Tom a chance to become your new best friend!</p>
+                    <button class="adoption-cta" type="button">Meet Tom</button>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-media">
+                    <img src="cat.jpg" alt="Jerry, a cat ready to meet his new family">
+                </div>
+                <div class="card-content">
+                    <p class="adoption-badge">AVAILABLE FOR ADOPTION</p>
+                    <h3>Meet Jerry</h3>
+                    <p class="pet-description">Jerry is a sweet and adorable cat who deserves a warm and loving home. He is ready to bring joy and companionship to his new family. Open your heart and give Jerry his forever home!</p>
+                    <button class="adoption-cta" type="button">Meet Jerry</button>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-media">
+                    <img src="brownie.webp" alt="Brownie, a pet looking for a home">
+                </div>
+                <div class="card-content">
+                    <p class="adoption-badge">AVAILABLE FOR ADOPTION</p>
+                    <h3>Meet Brownie</h3>
+                    <p class="pet-description">Brownie is looking for a caring home and a family to share everyday life with. Take time to get acquainted and see if you make a good match.</p>
+                    <button class="adoption-cta" type="button">Meet Brownie</button>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-media">
+                    <img src="Luca.webp" alt="Luca, a pet looking for a home">
+                </div>
+                <div class="card-content">
+                    <p class="adoption-badge">AVAILABLE FOR ADOPTION</p>
+                    <h3>Meet Luca</h3>
+                    <p class="pet-description">Luca is ready to meet a loving family. A little time together is the best way to discover whether you are the right fit.</p>
+                    <button class="adoption-cta" type="button">Meet Luca</button>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-media">
+                    <img src="Luna.jpg" alt="Luna, a pet looking for a home">
+                </div>
+                <div class="card-content">
+                    <p class="adoption-badge">AVAILABLE FOR ADOPTION</p>
+                    <h3>Meet Luna</h3>
+                    <p class="pet-description">Luna is hoping to find a caring home and someone to share new memories with.</p>
+                    <button class="adoption-cta" type="button">Meet Luna</button>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-media">
+                    <img src="Milo.jpg" alt="Milo, a pet looking for a home">
+                </div>
+                <div class="card-content">
+                    <p class="adoption-badge">AVAILABLE FOR ADOPTION</p>
+                    <h3>Meet Milo</h3>
+                    <p class="pet-description">Milo is looking for a family to welcome them home and make them part of everyday adventures.</p>
+                    <button class="adoption-cta" type="button">Meet Milo</button>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-media">
+                    <img src="Padu.jpg" alt="Padu, a pet looking for a home">
+                </div>
+                <div class="card-content">
+                    <p class="adoption-badge">AVAILABLE FOR ADOPTION</p>
+                    <h3>Meet Padu</h3>
+                    <p class="pet-description">Padu is ready to meet someone special and settle into a loving forever home.</p>
+                    <button class="adoption-cta" type="button">Meet Padu</button>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <span class="footer-rule" aria-hidden="true"></span>
+        <p class="footer-message">A Gift Of New Life !!</p>
+    </footer>
 </body>
 </html>
