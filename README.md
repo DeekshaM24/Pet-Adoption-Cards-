@@ -219,7 +219,9 @@ Pet-Adoption-Cards-
 ├── Milo.jpg
 └── Padu.jpg
 
-## 👩‍💻 Project By
+---
+
+###👩‍💻 Project By
 
 **Deeksha M**
 
