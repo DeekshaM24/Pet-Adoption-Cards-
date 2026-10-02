@@ -8,6 +8,12 @@ The project focuses on **frontend development, responsive web design, UI/UX desi
 
 ---
 
+## 🌐 Live Project
+
+🔗 **Live Website:** [Pet Adoption Cards]( https://deeksham24.github.io/Pet-Adoption-Cards-/)
+
+💻 **Source Code:** [GitHub Repository](https://github.com/DeekshaM24/Pet-Adoption-Cards-)
+
 ## 🌟 About the Project
 
 **Pet Adoption Cards** is a frontend web project created to present adoptable pets through a clean, visually engaging card-based interface.
@@ -212,3 +218,13 @@ Pet-Adoption-Cards-
 ├── Luna.jpg
 ├── Milo.jpg
 └── Padu.jpg
+
+## 👩‍💻 Project By
+
+**Deeksha M**
+
+**Frontend Developer | UI/UX Designer | Product Designer | Aspiring Software Engineer**
+
+This project was designed and developed as part of my frontend development and UI/UX design practice.
+
+---
